@@ -8,13 +8,20 @@ let formData = {
 formRef.addEventListener('input', onDataInput);
 formRef.addEventListener('submit', onFormSubmit);
 
-try {
-  const startfeedbackFormState = localStorage.getItem('feedback-form-state');
+// try {
+//   const startfeedbackFormState = localStorage.getItem('feedback-form-state');
+//   formData = JSON.parse(startfeedbackFormState);
+//   formElements.email.value = formData.email;
+//   formElements.message.value = formData.message;
+// } catch (error) {
+//   console.error('Set state error: ', error.message);
+// }
+
+const startfeedbackFormState = localStorage.getItem('feedback-form-state');
+if (startfeedbackFormState) {
   formData = JSON.parse(startfeedbackFormState);
   formElements.email.value = formData.email;
   formElements.message.value = formData.message;
-} catch (error) {
-  console.error('Set state error: ', error.message);
 }
 
 function onDataInput(evt) {
